@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<script>
+    function addcalculateItem(value){
+        document.getElementById('displayNum').value+=value;
+    }
+    function evalCalculateItem() {
+        var displayn=document.getElementById('dispayNum').
+    value;
+        if (dispayn!='') {
+            document.getElementById('displayResult'). value=
+    eval(document.getElementById('displayNum').value);
+        }
+        if (displayn !='') {
+            document.getElementById('displayResult').placeholder=document.getElementById('displayNum').value;
+        }
+        document.getElementById('displayNum').value='';
+    }
+    function reset_calculate(){
+        document.getElementById(displayNum).placeholder=0;
+        document.getElementById(displayNum).value='';
+        document.getElementById(displayResult).value='';
+    }
+    function clearineitem(){
+        var dnvalue=document.getElementById('displayNum').value;
+        var dnIep=dnvalue.slice(0,-1);
+    document.getElementIdById('displayNum').value=dnrep;
+    } 
+</script>
+<style>
+    body {
+min-height: 100vh;
+padding: 0%;
+margin: 0%;
+display: grid;
+place-items: center;
+font-family: arial;
+background: #e8e8e8;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    @font-face {
+        font-family: "digital-7";
+        src: url(digital-7 .ttf) format("truetype");
+    }
+    input {
+         outline: 0;
+    }
+    #my-cal-light::before{
+        content: "";
+        position: absolute;
+        height: 100px;
+        width: 4px;
+        right: -5px;
+        top: 100px;
+        background: #f0f0f0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    #my-cal-light{
+        position: relative;
+        background-color: #fff;
+        padding-top: 70px;
+        width: 300px;
+        border-radius: 35px;
+        background: #f0f0f0;
+        box-shadow: inset 6px 6px 12px #ffff, inset -6px -6px 12px #d7d7d7
+        10px 10px 20px rgba(0,0,0,0.2);
+    }
+    #my-cal-light::after{
+        content: "";
+        position: absolute;
+        height: 60px;
+        width: 4px;
+        right: -5px;
+        top: 210px;
+        background: #f0f0f0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    #my-cal-light .display-result{
+        position: relative;
+        margin: 0 10px;
+        height: 160px;
+        border-radius: 10px;
+        background: #000000;
+        border: 8px solid #acacac;
+        color: #21a6b0;
+    }
+    #my-cal-light .display-result input{
+        font-weight: 400;
+        font-family: "digital-7";
+        width: 100%;
+        border: none;
+        text-align: right;
+        background-color: transparent;
+    }
+    #my-cal-light .calculation-input{
+        padding: 5px 15px;
+        color: #4db6b1;
+        font-size: 2.5rem;
+    }
+    #my-cal-light .calculation-input::placeholder{
+        opacity: 1;
+    }
+    #my-cal-light .result-input{
+        font-size: 3rem;
+        padding: 5px 15px;
+        color: #21a6b0;
+    }
+    #my-cal-light .calculation-items{
+        border-radius: 35px;
+        padding-bottom: 25px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+    #my-cal-light .row-calculate{
+        display: flex;
+    }
+    #my-cal-light .cal-item{
+        width: 60px;
+        height: 60px;
+        margin: 8px;
+        border-radius: 10px;
+        background: #f0f0f0;
+        box-shadow: 6px 6px 12px #d7d7d7,-6px -6px 12px #ffffff;
+    }
+    #my-cal-light .eval-item{
+        width: 140px;
+        background: #f48e97;
+    }
+    #my-cal-light .cal-item input{
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 25px;
+      color: #747474;
+    }
+    #my-cal-light .eval-item input{
+     color: #fff;
+    }
+    #my-cal-light .math-item input{
+        font-size: 30px;
+    }
+    #my-cal-light .green-input{
+        background-color: #75d0c4;
+    }
+    #my-cal-light .green-input input{
+        color: #fff;
+    }
+    </style>
+<body>
+   <div class="calculator"></div>
+   <form id="my-cal-light">
+       <div class="display-result">
+           <input type="text" id="dispdlayNum" name="displayNum" placeholder="0" class="calculation-input">
+           <input type="text" id="displayResult" name="displayResult" class="result-input" readnoly>
+       </div>
+       <div class="calculation-items">
+           <div class=" row-calculate">
+            <div class=" cal-item math-item"> 
+                <input type="button" name="resetCalculate" value="c" onclick="resetCalculate()">
+           </div>
+           <div class=" cal-item math-item"> 
+            <input type="button" name="clearOneItem" value="&#9003" onclick="clearineitem()">
+       </div>
+       <div class=" cal-item math-item"> 
+        <input type="button" name="remain" value="%" onclick="addCalculateItem(remain.value)">
+   </div>
+   <div class=" cal-item math-item green-input"> 
+    <input type="button" name="plus" value="+" onclick="addCalculateItem(plus.value)">
+</div>  
+</div>
+<div class="row-calculate">
+    <div class="cal-item">
+        <input type="button" name="n1" value="1" onclick="addCalculateItem(n1.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n2" value="2" onclick="addCalculateItem(n2.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n3" value="3" onclick="addCalculateItem(n3.value)">
+    </div>
+    <div class="cal-item math-item green-input">
+        <input type="button" name="neg" value="-" onclick="addCalculateItem(neg.value)">
+    </div>
+</div>
+<div class="row-calculate">
+    <div class="cal-item">
+        <input type="button" name="n4" value="4" onclick="addCalculateItem(n4.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n5" value="5" onclick="addCalculateItem(n5.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n6" value="6" onclick="addCalculateItem(n6.value)">
+    </div>
+    <div class="cal-item math-item green-input">
+        <input type="button" name="mp" value="+" onclick="addCalculateItem(mp.value)">
+    </div>
+</div>
+<div class="row-calculate">
+    <div class="cal-item">
+        <input type="button" name="n7" value="7" onclick="addCalculateItem(n7.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n8" value="8" onclick="addCalculateItem(n8.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n9" value="9" onclick="addCalculateItem(n9.value)">
+    </div>
+    <div class="cal-item math-item green-input">
+        <input type="button" name="dp" value="/" onclick="addCalculateItem(dp.value)">
+    </div>
+</div>
+<div class="row-calculate">
+    <div class="cal-item">
+        <input type="button" name="n0" value="0" onclick="addCalculateItem(n0.value)">
+    </div>
+    <div class="cal-item">
+        <input type="button" name="n_dot" value="." onclick="addCalculateItem(n8.value)">
+    </div>
+    <div class="cal-item eval-item math-item">
+        <input type="button"id=" " name=" " value="=" onclick="addCalculateItem(dp.value)">
+    </div>
+       </div>
+       </div>
+   </form> 
+</body>
+</html>
